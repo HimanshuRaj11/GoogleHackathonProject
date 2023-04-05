@@ -1,0 +1,71 @@
+.register {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/search.jpg");
+    height: 38em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        background-color: rgba(83, 82, 82, 0.432);
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            width: 20em;
+        }
+        .loginbtn {
+            display: flex;
+            width: 20em;
+            justify-content: end;
+            margin: 5px;
+            a {
+                color: rgb(255, 255, 255);
+            }
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color: rgb(37, 139, 235);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            justify-content: center;
+            font-weight: 600;
+            .icon {
+                font-size: 30px;
+                margin: 0 5px;
+            }
+        }
+    }
+}

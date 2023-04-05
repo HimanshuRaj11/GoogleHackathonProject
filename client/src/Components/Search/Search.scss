@@ -1,0 +1,28 @@
+.searchContainer {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../assets/search.jpg");
+    height: 35em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+    .search {
+        input {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid rgb(112, 106, 106);
+            padding: 7px 15px;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            width: 30em;
+            font-size: 18px;
+        }
+    }
+}
