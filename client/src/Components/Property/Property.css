@@ -1,0 +1,70 @@
+.PropertyContainer .properties {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.PropertyContainer .properties .card {
+  height: 22em;
+  width: 25em;
+  overflow: hidden;
+  margin: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-bottom: 1px solid rgb(145, 140, 140);
+  transition: all 0.2s ease-in-out;
+}
+.PropertyContainer .properties .card img {
+  height: 15em;
+  width: 25em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.PropertyContainer .properties .card .propDetail {
+  display: flex;
+  flex-direction: column;
+}
+.PropertyContainer .properties .card .propDetail .propinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.PropertyContainer .properties .card .propDetail .propinfo span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+}
+.PropertyContainer .properties .card .propDetail .propSpecification {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.PropertyContainer .properties .card .propDetail .propSpecification span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+}
+.PropertyContainer .properties .card .propDetail .propSpecification span p {
+  color: #424242;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+.PropertyContainer .properties .card:hover {
+  box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+}/*# sourceMappingURL=Property.css.map */

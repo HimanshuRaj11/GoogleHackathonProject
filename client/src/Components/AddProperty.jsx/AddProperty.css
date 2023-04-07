@@ -1,0 +1,100 @@
+@charset "UTF-8";
+.AddProperty .heading {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+}
+.AddProperty .form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+.AddProperty .detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+}
+.AddProperty .detail label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #444;
+  margin: 20px;
+  width: 20em;
+}
+.AddProperty .detail input[type=text], .AddProperty .detail select, .AddProperty .detail textarea {
+  width: 20em;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  background-color: #fff;
+  font-size: 16px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.AddProperty .detail input[type=checkbox] {
+  margin-left: 5px;
+}
+.AddProperty .detail textarea {
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 30em;
+  min-width: 30em;
+}
+.AddProperty .detail input[type=file] {
+  margin-bottom: 20px;
+  width: 20em;
+}
+.AddProperty .detail select option[disabled] {
+  color: #ccc;
+}
+.AddProperty .detail select option[selected] {
+  font-weight: bold;
+}
+.AddProperty .detail button {
+  background-color: #008CBA;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.AddProperty .detail button:hover {
+  background-color: #006D87;
+}
+.AddProperty input[type=checkbox] {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.AddProperty input[type=checkbox]:checked {
+  background-color: #008CBA;
+  border-color: #008CBA;
+}
+.AddProperty input[type=checkbox]:checked::after {
+  content: "✔";
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin-top: -17px;
+  margin-left: 2px;
+}/*# sourceMappingURL=AddProperty.css.map */

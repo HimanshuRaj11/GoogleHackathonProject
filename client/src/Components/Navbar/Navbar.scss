@@ -10,22 +10,46 @@
         font-size: 30px;
         color: #fff;
         font-weight: 800;
-        word-spacing:2px ;
+        word-spacing: 2px;
     }
     .links {
         color: #fff;
         display: flex;
         flex-direction: row;
-        .link{
+        .link {
             color: #fff;
             margin: 0 10px;
             font-size: 20px;
+            padding: 3px;
+            &::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background:  #e86ed0;
+                transition: width .3s;
+            }
+            &:hover {
+                &::after{
+                    width: 100%;
+                }
+            }
+        }
+        .active {
+            &::after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background:  #e86ed0;
+                // transition: width .3s;
+            }
         }
     }
     .authLink {
         display: flex;
         flex-direction: row;
-        .icon{
+        .icon {
             color: #fff;
             margin: 0 10px;
             font-size: 30px;

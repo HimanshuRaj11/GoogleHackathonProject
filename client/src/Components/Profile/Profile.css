@@ -1,0 +1,173 @@
+.ProfileContainer {
+  width: 100%;
+}
+.ProfileContainer .userInfoSide {
+  position: fixed;
+  padding: 10px;
+  width: 25%;
+  height: 36em;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-right: 1px solid rgb(201, 198, 198);
+}
+.ProfileContainer .userInfoSide .user {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10px;
+  align-items: center;
+}
+.ProfileContainer .userInfoSide .user img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin: 10px;
+}
+.ProfileContainer .userInfoSide .user .userDetail {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.ProfileContainer .userInfoSide .user .userDetail .name {
+  font-size: 20px;
+  font-weight: 800;
+}
+.ProfileContainer .userInfoSide .user .userDetail .email {
+  font-size: 18px;
+  font-weight: 800;
+  color: rgb(80, 80, 78);
+}
+.ProfileContainer .userDataSide {
+  padding: 10px;
+  width: 75%;
+  min-height: 95vh;
+  margin-left: 25%;
+}
+.ProfileContainer .userDataSide .heading {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.ProfileContainer .userDataSide .properties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ProfileContainer .userDataSide .properties .card {
+  height: 22em;
+  width: 25em;
+  overflow: hidden;
+  margin: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-bottom: 1px solid rgb(145, 140, 140);
+  transition: all 0.2s ease-in-out;
+}
+.ProfileContainer .userDataSide .properties .card img {
+  height: 15em;
+  width: 25em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail {
+  display: flex;
+  flex-direction: column;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .propinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .propinfo span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .propSpecification {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .propSpecification span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .propSpecification span p {
+  color: #424242;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .button {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2px;
+  width: 100%;
+  justify-content: end;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .button .btn {
+  margin: 0 10px;
+  display: flex;
+}
+.ProfileContainer .userDataSide .properties .card .propDetail .button .btn .icon {
+  color: #000;
+  font-size: 35px;
+  font-weight: 1000;
+}
+.ProfileContainer .userDataSide .properties .card:hover {
+  box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+}
+.ProfileContainer .userDataSide .properties .Addcard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22em;
+  width: 25em;
+  margin: 15px;
+  background-color: rgb(235, 233, 233);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-bottom: 1px solid rgb(145, 140, 140);
+}
+.ProfileContainer .userDataSide .properties .Addcard .add-Link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ffffff;
+}
+.ProfileContainer .userDataSide .properties .Addcard .add-Link .AddIcon {
+  font-size: 10em;
+}
+.ProfileContainer .userDataSide .properties .Addcard .add-Link h1 {
+  text-transform: uppercase;
+}/*# sourceMappingURL=Profile.css.map */

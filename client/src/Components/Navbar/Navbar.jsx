@@ -4,25 +4,31 @@ import { NavLink } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import { AiOutlineLogout } from "react-icons/ai";
+import axios from 'axios'
 export default function Navbar(props) {
-  console.log("jkhjh===" + props.cookie);
+  console.log(props);
+  const  logout = async()=>{
+      const res = await axios.post('http://localhost:8000/auth/logout',{ withCredentials: true })
+      console.log(res.data);
+    }
+
   return (
     <div className="navbar">
-      <NavLink to="" className="logo">
+      <NavLink to="/" className="logo">
         LOGO
       </NavLink>
       <div className="links">
-        <NavLink to="" className="link">
+        <NavLink to="/" className="link">
           Home
         </NavLink>
-        <NavLink to="" className="link">
+        <NavLink to="/about" className="link">
           About
         </NavLink>
-        <NavLink to="" className="link">
+        <NavLink to="/services" className="link">
           Services
         </NavLink>
-        <NavLink to="" className="link">
-          Galary
+        <NavLink to="/property" className="link">
+        Property
         </NavLink>
       </div>
       <div className="authLink">
@@ -34,10 +40,10 @@ export default function Navbar(props) {
           )
         ) : (
           <>
-            <NavLink to="#">
+            <span onClick={logout}>
               <AiOutlineLogout className="icon" />
-            </NavLink>
-            <NavLink to="">
+            </span>
+            <NavLink to="/profile">
               <MdAccountCircle className="icon" />
             </NavLink>
           </>

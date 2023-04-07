@@ -1,0 +1,158 @@
+.Home .heading {
+  margin-top: 20px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.Home .properties {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.Home .properties .card {
+  height: 20em;
+  width: 25em;
+  overflow: hidden;
+  margin: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-bottom: 1px solid rgb(145, 140, 140);
+  transition: all 0.2s ease-in-out;
+}
+.Home .properties .card img {
+  height: 15em;
+  width: 25em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Home .properties .card .propDetail {
+  display: flex;
+  flex-direction: column;
+}
+.Home .properties .card .propDetail .propinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.Home .properties .card .propDetail .propinfo span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+}
+.Home .properties .card .propDetail .propSpecification {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.Home .properties .card .propDetail .propSpecification span {
+  color: #000;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+}
+.Home .properties .card .propDetail .propSpecification span p {
+  color: #424242;
+  font-weight: 800;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+.Home .properties .card:hover {
+  box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+}
+.Home .workFlowContainer {
+  padding: 30px;
+}
+.Home .workFlowContainer .workflow {
+  width: 100%;
+  height: 45em;
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img1.jpg");
+  background-size: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+}
+.Home .workFlowContainer .workflow .textSide {
+  width: 50%;
+  background-color: #000;
+  padding: 20px;
+}
+.Home .workFlowContainer .workflow .textSide .topdiv {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Home .workFlowContainer .workflow .textSide .topdiv p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #e86ed0;
+  font-size: 15px;
+}
+.Home .workFlowContainer .workflow .textSide .topdiv p span {
+  margin: 0 10px;
+  background-color: #e86ed0;
+  width: 5em;
+  height: 2px;
+}
+.Home .workFlowContainer .workflow .textSide .topdiv h1 {
+  margin: 10px 0;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
+.Home .workFlowContainer .workflow .textSide .detailDiv {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.Home .workFlowContainer .workflow .textSide .detailDiv .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 12em;
+  width: 16em;
+  margin: 20px;
+}
+.Home .workFlowContainer .workflow .textSide .detailDiv .card span {
+  color: #fff;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: 1000;
+  background-color: #e86ed0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.Home .workFlowContainer .workflow .textSide .detailDiv .card .cardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 10px;
+}
+.Home .workFlowContainer .workflow .textSide .detailDiv .card .cardText p {
+  text-align: center;
+}/*# sourceMappingURL=Home.css.map */

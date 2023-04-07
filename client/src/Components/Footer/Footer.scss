@@ -1,6 +1,8 @@
 .footerContainer {
+  position: absolute;
+  z-index: 99;
   width: 100%;
-  background-color: rgba(26, 24, 24, 0.897);
+  background-color: rgba(26, 24, 24);
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
