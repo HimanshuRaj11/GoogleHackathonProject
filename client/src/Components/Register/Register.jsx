@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Register.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import { IoMdLogIn } from "react-icons/io";
 import axios from "axios";
 import Cookie from "js-cookie";
-// import {SetCookie, GetCookie}  from '../auth/Cookie'
-// import { useGlobalContext } from '../../Context/GlobalContext'
+import { useGlobalContext } from "../../Context/Context";
 export default function Register() {
-  // const {setCookie} = useGlobalContext();
+  const {getUser}= useGlobalContext()
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -30,11 +30,12 @@ export default function Register() {
       );
       console.log(res.data.token);
       Cookie.set("realEstate", res.data.token, {
-        expires: 1,
         // secure: true,
         sameSite: "strict",
         path: "/",
       });
+      navigate("/");
+      getUser()
     } catch (error) {
       console.log(error);
     }

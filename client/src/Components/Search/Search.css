@@ -9,8 +9,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
-          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+}
+.searchContainer .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .searchContainer .search input {
   border: none;
@@ -24,4 +29,23 @@
   -o-border-radius: 15px;
   width: 30em;
   font-size: 18px;
+}
+.searchContainer .search button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 5px;
+  padding: 2px;
+  background-color: #fff;
+  -webkit-border-top-right-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-topright: 15px;
+  -moz-border-radius-bottomright: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-left: -13px;
+}
+.searchContainer .search button .SearchIcon {
+  font-weight: 1000;
+  font-size: 29px;
 }/*# sourceMappingURL=Search.css.map */

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./AddProperty.css";
-import axios from 'axios'
+import axios from "axios";
 export default function AddProperty() {
+  const [image, setImage] = useState("");
   const [Input, setInput] = useState({
     title: "",
     type: "",
     price: "",
     area: "",
-    forSell: "",
     country: "",
     location: "",
     description: "",
@@ -16,13 +16,32 @@ export default function AddProperty() {
   const handelInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
     setInput({ ...Input, [name]: value });
   };
-  const submit = async() => {
-    console.log(Input);
-      const res = await axios.post('http://localhost:8000/property/add-property', Input,{ withCredentials: true })
-      console.log(res.data);
 
+  const submit = async () => {
+    const formData = new FormData();
+    formData.append("image", image);
+    Object.entries(Input).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    const res = await axios.post(
+      "http://localhost:8000/property/add-property",
+      formData,
+      { withCredentials: true }
+    );
+    setInput({
+      title: "",
+      type: "",
+      price: "",
+      area: "",
+      country: "",
+      location: "",
+      description: "",
+      currency:"",
+      areaUnit:""
+    });
   };
   return (
     <div className="AddProperty">
@@ -33,8 +52,7 @@ export default function AddProperty() {
         <div className="detail">
           <label htmlFor="image">
             <input
-              onChange={handelInput}
-              value={Input.image}
+              onChange={(e) => setImage(e.target.files[0])}
               type="file"
               name="image"
             />
@@ -45,23 +63,30 @@ export default function AddProperty() {
               value={Input.title}
               type="text"
               name="title"
-              placeholder="Name of Property"
+              placeholder="Title for Property"
             />
           </label>
           <label htmlFor="type">
             <select name="type" onChange={handelInput} value={Input.type}>
-              <option selected>
-                Setect Property Type
-              </option>
+              <option selected>Setect Property Type</option>
               <option value="Apartments">Apartments</option>
               <option value="House">House</option>
               <option value="Industrial">Industrial</option>
               <option value="vacant land">Vacant land</option>
               <option value="Villa">Villa</option>
+              <option value="Cottage">Cottage</option>
               <option value="Other">Other</option>
             </select>
           </label>
           <label htmlFor="price">
+            <select name="currency"  onChange={handelInput} value={Input.currency}>
+              <option value="&#x20B9;" selected>&#x20B9;</option>
+              <option value="&#x24;">&#x24;</option>
+              <option value="&#xa3;">&#xa3;</option>
+              <option value="&#x20AC;">&#x20AC;</option>
+              <option value="&#x20BD;">&#x20BD;</option>
+              <option value="&#xa5;">&#xa5;</option>
+            </select>
             <input
               onChange={handelInput}
               value={Input.price}
@@ -76,18 +101,18 @@ export default function AddProperty() {
               value={Input.area}
               type="text"
               name="area"
-              placeholder="Area In Square meters"
+              placeholder="Area or Size"
             />
+            <select name="areaUnit"  onChange={handelInput} value={Input.areaUnit}>
+              <option value="sq ft" selected>sq ft</option>
+              <option value="sq yd">sq yd</option>
+              <option value="sq m">sq m</option>
+              <option value="Acres">Acres</option>
+              <option value="BHK">BHK</option>
+              <option value="Bigha">Bigha</option>
+            </select>
           </label>
-          <label htmlFor="forSell">
-            <span>Is For sell</span>
-            <input
-              onChange={handelInput}
-              value={Input.forSell}
-              type="checkbox"
-              name="forSell"
-            />
-          </label>
+
           <label htmlFor="country">
             <input
               onChange={handelInput}

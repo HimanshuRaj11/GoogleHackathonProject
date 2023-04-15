@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineLogout } from "react-icons/ai";
-import axios from 'axios'
-export default function Navbar(props) {
-  console.log(props);
-  const  logout = async()=>{
-      const res = await axios.post('http://localhost:8000/auth/logout',{ withCredentials: true })
-      console.log(res.data);
-    }
+import { ImCross } from "react-icons/im";
+import axios from "axios";
+import Message from "../Message/Message";
+import { useGlobalContext } from "../../Context/Context";
 
+export default function Navbar() {
+  const { user, setUser } = useGlobalContext();
+  const {Hamburger , setHamburger} = useState(true)
+  const {cross , setcross} = useState(true)
+  const {ToggelM , setToggel} = useState(true)
+
+  const [success, setSuccess] = useState();
+  const navigate = useNavigate();
+  const logout = async () => {
+    const res = await axios.get("http://localhost:8000/auth/logout", {
+      withCredentials: true,
+    });
+    setSuccess(res.data.success);
+    setUser("");
+    navigate("/login");
+  };
+  const toggel = ()=>{
+    setToggel(!ToggelM)
+  }
+  useEffect(() => {
+    // getUser()
+  }, []);
   return (
     <div className="navbar">
+      <div className="navControl">
+        {
+          ToggelM ? <GiHamburgerMenu onClick={toggel} className="hamberger"/> 
+          :
+          <ImCross onClick={toggel} className="cross"/>
+        }
+      </div>
       <NavLink to="/" className="logo">
         LOGO
       </NavLink>
@@ -21,23 +48,21 @@ export default function Navbar(props) {
         <NavLink to="/" className="link">
           Home
         </NavLink>
-        <NavLink to="/about" className="link">
+        <NavLink to="/about-us" className="link">
           About
         </NavLink>
         <NavLink to="/services" className="link">
           Services
         </NavLink>
         <NavLink to="/property" className="link">
-        Property
+          Property
         </NavLink>
       </div>
       <div className="authLink">
-        {!props.cookie? (
-          (
-            <NavLink to="/login">
-              <IoMdLogIn className="icon" />
-            </NavLink>
-          )
+        {!user ? (
+          <NavLink to="/login">
+            <IoMdLogIn className="icon" />
+          </NavLink>
         ) : (
           <>
             <span onClick={logout}>
@@ -49,6 +74,7 @@ export default function Navbar(props) {
           </>
         )}
       </div>
+      {success ? <Message msg={success} Mtype="success" /> : ""}
     </div>
   );
 }

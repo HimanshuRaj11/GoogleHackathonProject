@@ -1,8 +1,19 @@
+.Home {
+  background-color: rgb(236, 236, 236);
+}
 .Home .heading {
   margin-top: 20px;
   width: 100%;
   align-items: center;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.Home .heading hr {
+  width: 90%;
+  margin: 10px;
 }
 .Home .properties {
   margin-top: 10px;
@@ -11,68 +22,79 @@
   justify-content: center;
 }
 .Home .properties .card {
-  height: 20em;
-  width: 25em;
-  overflow: hidden;
-  margin: 15px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-bottom: 1px solid rgb(145, 140, 140);
-  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: 38em;
+  height: 18em;
+  margin: 10px;
+  padding: 2px;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
 }
-.Home .properties .card img {
-  height: 15em;
-  width: 25em;
+.Home .properties .card .img {
+  width: 16em;
+  height: 17em;
+  overflow: hidden;
+  padding: 1px;
   -o-object-fit: cover;
      object-fit: cover;
+  border: 1px solid rgb(185, 181, 181);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
-.Home .properties .card .propDetail {
+.Home .properties .card .details {
+  width: 20em;
+  height: 17em;
+  padding: 10px;
+}
+.Home .properties .card .details .head {
   display: flex;
   flex-direction: column;
+  height: 5em;
 }
-.Home .properties .card .propDetail .propinfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px;
-}
-.Home .properties .card .propDetail .propinfo span {
+.Home .properties .card .details .head .title {
+  font-weight: 600;
+  font-size: 20px;
   color: #000;
-  font-weight: 800;
-  font-size: 19px;
 }
-.Home .properties .card .propDetail .propSpecification {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px;
+.Home .properties .card .details .head h3 {
+  color: rgb(96, 97, 97);
 }
-.Home .properties .card .propDetail .propSpecification span {
-  color: #000;
-  font-weight: 800;
-  font-size: 19px;
-  text-transform: capitalize;
+.Home .properties .card .details .m-detail {
+  height: 5em;
   display: flex;
   flex-direction: row;
 }
-.Home .properties .card .propDetail .propSpecification span p {
-  color: #424242;
-  font-weight: 800;
-  font-size: 19px;
-  text-transform: capitalize;
+.Home .properties .card .details .m-detail span {
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: 600;
 }
-.Home .properties .card:hover {
-  box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-  -webkit-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-  -moz-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-  transform: scale(1.01);
-  -webkit-transform: scale(1.01);
-  -moz-transform: scale(1.01);
-  -ms-transform: scale(1.01);
-  -o-transform: scale(1.01);
+.Home .properties .card .details .contact {
+  height: 5em;
+  margin-top: 20px;
+}
+.Home .properties .card .details .contact button {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 20px;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid green;
+  background-color: rgb(20, 179, 60);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 .Home .workFlowContainer {
   padding: 30px;
@@ -84,8 +106,8 @@
   flex-direction: row;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img1.jpg");
   background-size: cover;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
-          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
 }
 .Home .workFlowContainer .workflow .textSide {
   width: 50%;

@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Outlet } from "react-router";
 import "./Profile.css";
+import { useGlobalContext } from "../../Context/Context";
 import { NavLink } from "react-router-dom";
-import {MdDelete,MdEdit} from 'react-icons/md'
-import {BiPlusCircle} from 'react-icons/bi'
 export default function Profile() {
+  const { getUser, user } = useGlobalContext();
+  useEffect(() => {
+    getUser();
+  },[]);
+
   const profilemage =
     "https://cdn4.vectorstock.com/i/1000x1000/08/38/avatar-icon-male-user-person-profile-symbol-vector-20910838.jpg";
   return (
@@ -12,68 +17,23 @@ export default function Profile() {
         <div className="user">
           <img className="img" src={profilemage} alt="" />
           <div className="userDetail">
-            <span className="name">Himanshu</span>
-            <span className="email">Himanshu@gmail.com</span>
+            {user ? (
+              <>
+                <NavLink to ={`/profile/user/${user._id}`} className="name">{user.username}</NavLink>
+                <NavLink to ={`/profile/user/${user._id}`} className="email">{user.email}</NavLink>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <hr />
-        <div className="userControll"></div>
-      </div>
-      <div className="userDataSide">
-        <div className="heading"> <h1> My Properties</h1></div>
-        <hr />
-        <div className="properties">
-
-            <div className="card">
-               <NavLink to=''>
-                 <img  className="img" src={require('../../assets/estate.jpg')} alt="" />
-                <div className="propDetail">
-                    <div className="propinfo">
-                        <span className="name">Honted House</span>
-                        <span className="price">&#x20B9; 549999</span>
-                    </div>
-                    <div className="propSpecification">
-                        <span>Type: <p>Banglo</p></span>
-                        <span>Area : <p>458 Sqm</p></span>
-                        <span>City : <p>shimla</p></span>
-                    </div>
-                    <div className="button">
-                        <NavLink className="btn" to=""><MdEdit className="icon"  /> </NavLink>
-                        <span className="btn">< MdDelete className="icon" /></span>
-                    </div>
-                </div>
-                </NavLink>
-            </div>
-           
-            <div className="card">
-               <NavLink to=''>
-                 <img  className="img" src={require('../../assets/estate.jpg')} alt="" />
-                <div className="propDetail">
-                    <div className="propinfo">
-                        <span className="name">Honted House</span>
-                        <span className="price">&#x20B9; 549999</span>
-                    </div>
-                    <div className="propSpecification">
-                        <span>Type: <p>Banglo</p></span>
-                        <span>Area : <p>458 Sqm</p></span>
-                        <span>City : <p>shimla</p></span>
-                    </div>
-                    <div className="button">
-                        <NavLink className="btn" to=""><MdEdit className="icon"  /> </NavLink>
-                        <span className="btn">< MdDelete className="icon" /></span>
-                    </div>
-                </div>
-                </NavLink>
-            </div>
-           
-            <div className="Addcard">
-               <NavLink to='/add-property' className="add-Link">
-                 <BiPlusCircle className="AddIcon" />
-                 <h1>Add Property</h1>
-                </NavLink>
-            </div>
-           
+        <div className="userControll">
+          <NavLink to ={`/profile/property/${user._id}`} className="span" >My Property</NavLink>
         </div>
+      </div>
+      <div className="content">
+              <Outlet />
       </div>
     </div>
   );

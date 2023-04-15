@@ -1,0 +1,88 @@
+.searchResultContainer {
+  background-color: rgb(236, 236, 236);
+}
+.searchResultContainer .container {
+  display: flex;
+}
+.searchResultContainer .container .searchResult {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.searchResultContainer .container .searchResult .card {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: 38em;
+  height: 18em;
+  margin: 10px;
+  padding: 2px;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+.searchResultContainer .container .searchResult .card .img {
+  width: 16em;
+  height: 17em;
+  overflow: hidden;
+  padding: 1px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid rgb(185, 181, 181);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.searchResultContainer .container .searchResult .card .details {
+  width: 20em;
+  height: 17em;
+  padding: 10px;
+}
+.searchResultContainer .container .searchResult .card .details .head {
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+}
+.searchResultContainer .container .searchResult .card .details .head .title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+}
+.searchResultContainer .container .searchResult .card .details .head h3 {
+  color: rgb(96, 97, 97);
+}
+.searchResultContainer .container .searchResult .card .details .m-detail {
+  height: 5em;
+  display: flex;
+  flex-direction: row;
+}
+.searchResultContainer .container .searchResult .card .details .m-detail span {
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.searchResultContainer .container .searchResult .card .details .contact {
+  height: 5em;
+  margin-top: 20px;
+}
+.searchResultContainer .container .searchResult .card .details .contact button {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 20px;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid green;
+  background-color: rgb(20, 179, 60);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}/*# sourceMappingURL=SearchResult.css.map */

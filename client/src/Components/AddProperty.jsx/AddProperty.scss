@@ -87,30 +87,5 @@
         background-color: #006D87;
       }
       
-      input[type="checkbox"] {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-color: #fff;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-      
-      input[type="checkbox"]:checked {
-        background-color: #008CBA;
-        border-color: #008CBA;
-      }
-      
-      input[type="checkbox"]:checked::after {
-        content: "\2714";
-        display: block;
-        color: #fff;
-        font-size: 16px;
-        text-align: center;
-        margin-top: -17px;
-        margin-left: 2px;
-      }
-      
+     
 }

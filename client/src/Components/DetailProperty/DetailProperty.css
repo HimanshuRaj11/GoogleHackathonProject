@@ -1,0 +1,73 @@
+.propertyDetail {
+  padding: 10px 50px;
+}
+.propertyDetail .imgDiv {
+  margin-top: 10px;
+  width: 100%;
+  max-height: 32em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.propertyDetail .imgDiv img {
+  height: 32em;
+  width: 90%;
+}
+.propertyDetail .details {
+  width: 100%;
+}
+.propertyDetail .details .head div {
+  margin: 10px;
+}
+.propertyDetail .details .head .title {
+  font-size: 42px;
+  text-transform: capitalize;
+}
+.propertyDetail .details .head .location {
+  text-transform: capitalize;
+  font-size: 25px;
+  color: rgb(54, 53, 53);
+}
+.propertyDetail .details .mainDetail {
+  width: 100%;
+}
+.propertyDetail .details .mainDetail .navigate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.propertyDetail .details .mainDetail .navigate span {
+  font-size: 20px;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+.propertyDetail .details .mainDetail hr {
+  margin: 10px;
+}
+.propertyDetail .details .mainDetail .ExtraDetails div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding: 20px;
+}
+
+.d-f-fd-c {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reviewContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20em;
+}
+.reviewContainer h1 {
+  color: rgb(153, 155, 154);
+}/*# sourceMappingURL=DetailProperty.css.map */

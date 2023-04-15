@@ -1,0 +1,54 @@
+.MessageContainer {
+  height: 2.5em;
+  min-width: 20em;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  position: fixed;
+  z-index: 99;
+  bottom: 2em;
+  left: 2em;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.MessageContainer .msg {
+  font-weight: 800;
+  color: #fff;
+}
+.MessageContainer .icon {
+  text-align: center;
+  font-size: 20px;
+  height: 1em;
+  width: 1em;
+  font-weight: 1000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  color: #fff;
+  margin: 0 5px;
+}
+
+.error {
+  background-color: #f32013;
+  box-shadow: 0px 0px 11px 4px rgba(243, 30, 19, 0.6431372549);
+  -webkit-box-shadow: 0px 0px 11px 4px rgba(243, 30, 19, 0.6431372549);
+  -moz-box-shadow: 0px 0px 11px 4px rgba(243, 30, 19, 0.6431372549);
+}
+.error .icon {
+  background-color: #f32013;
+}
+
+.success {
+  background-color: #4bb543;
+  box-shadow: 0px 0px 11px 4px rgba(75, 181, 67, 0.7450980392);
+  -webkit-box-shadow: 0px 0px 11px 4px rgba(75, 181, 67, 0.7450980392);
+  -moz-box-shadow: 0px 0px 11px 4px rgba(75, 181, 67, 0.7450980392);
+}
+.success .icon {
+  background-color: #4bb543;
+}/*# sourceMappingURL=Message.css.map */

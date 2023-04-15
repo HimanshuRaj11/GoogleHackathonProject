@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoMdLogIn } from "react-icons/io";
 import Cookie from "js-cookie";
+import Message from "../Message/Message";
+import { useGlobalContext } from "../../Context/Context";
 export default function Login() {
+  const { getUser } = useGlobalContext();
+  const navigate = useNavigate();
+  const [success, setSuccess] = useState();
+  const [error, setError] = useState();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -14,16 +20,20 @@ export default function Login() {
     const value = e.target.value;
     setUser({ ...user, [name]: value });
   };
-  const Login = async()=>{
-    const res = await axios.post("http://localhost:8000/auth/login",user,{ withCredentials: true })
-    console.log(res.data.token);
+  const Login = async () => {
+    const res = await axios.post("http://localhost:8000/auth/login", user, {
+      withCredentials: true,
+    });
+    setError(res.data.error);
+    setSuccess(res.data.success);
     Cookie.set("realEstate", res.data.token, {
-      expires: 1,
       // secure: true,
       sameSite: "strict",
       path: "/",
     });
-  }
+    getUser();
+    navigate("/");
+  };
 
   return (
     <div className="login">
@@ -51,6 +61,8 @@ export default function Login() {
           Login <IoMdLogIn className="icon" />
         </button>
       </div>
+      {success ? <Message msg={success} Mtype="success" /> : ""}
+      {error ? <Message msg={error} Mtype="error" /> : ""}
     </div>
   );
 }

@@ -1,76 +1,96 @@
 .Home {
+    background-color: rgb(236, 236, 236);
     .heading {
         margin-top: 20px;
         width: 100%;
         align-items: center;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10px;
+        hr{
+            width: 90%;
+            margin: 10px;
+        }
     }
     .properties {
         margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        .card {
-            height: 20em;
-            width: 25em;
-            overflow: hidden;
-            margin: 15px;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
-            border-bottom: 1px solid rgb(145, 140, 140);
-            transition: all 0.2s ease-in-out;
-            img {
-                height: 15em;
-                width: 25em;
+        .card{
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            width: 38em;
+            height: 18em;
+            margin: 10px;
+            padding: 2px;
+            align-items: center;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #fff;
+            .img{
+                width: 16em;
+                height: 17em;
+                overflow: hidden;
+                padding: 1px;
                 object-fit: cover;
-            }
-            .propDetail {
-                display: flex;
-                flex-direction: column;
-                .propinfo {
+                border: 1px solid rgb(185, 181, 181);
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+}
+            .details{
+                width: 20em;
+                height: 17em;
+                padding: 10px;
+                .head{
                     display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    margin: 2px;
-                    span {
+                    flex-direction: column;
+                    height: 5em;
+                    .title{
+                        font-weight: 600;
+                        font-size: 20px;
                         color: #000;
-                        font-weight: 800;
-                        font-size: 19px;
+                    }
+                    h3{
+                        color: rgb(96, 97, 97);
                     }
                 }
-                .propSpecification {
+                .m-detail{
+                    height: 5em;
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-between;
-                    margin: 2px;
-                    span {
-                        color: #000;
-                        font-weight: 800;
-                        font-size: 19px;
-                        text-transform: capitalize;
-                        display: flex;
-                        flex-direction: row;
-                        p {
-                            color: #424242;
-                            font-weight: 800;
-                            font-size: 19px;
-                            text-transform: capitalize;
-                        }
+                    span{
+                        margin: 0 15px;
+                        font-size: 18px;
+                        font-weight: 600;
                     }
                 }
-            }
-            &:hover {
-                box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-                -webkit-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-                -moz-box-shadow: 8px 8px 16px -4px rgba(0, 0, 0, 0.34);
-                transform: scale(1.01);
-                -webkit-transform: scale(1.01);
-                -moz-transform: scale(1.01);
-                -ms-transform: scale(1.01);
-                -o-transform: scale(1.01);
+                .contact{
+                    height: 5em;
+                    margin-top: 20px;
+
+                    button{
+                        cursor: pointer;
+                        width: fit-content;
+                        font-size: 20px;
+                        padding: 7px;
+                        border-radius: 3px;
+                        border: 1px solid green;
+                        background-color: rgb(20, 179, 60);
+                        -webkit-border-radius: 3px;
+                        -moz-border-radius: 3px;
+                        -ms-border-radius: 3px;
+                        -o-border-radius: 3px;
+}
+                }
             }
         }
     }
@@ -86,7 +106,7 @@
             flex-direction: row;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img1.jpg");
             background-size: cover;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 91%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
             .textSide {
                 width: 50%;
                 background-color: #000;

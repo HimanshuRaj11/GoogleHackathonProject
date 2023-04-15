@@ -1,17 +1,23 @@
 .navbar {
   height: 50px;
-  background-color: rgba(26, 24, 24, 0.897);
+  background-color: rgb(26, 24, 24);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 .navbar .logo {
   font-size: 30px;
   color: #fff;
   font-weight: 800;
   word-spacing: 2px;
+}
+.navbar .navControl {
+  display: none;
 }
 .navbar .links {
   color: #fff;
@@ -47,7 +53,35 @@
   flex-direction: row;
 }
 .navbar .authLink .icon {
+  cursor: pointer;
   color: #fff;
   margin: 0 10px;
   font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .navbar .navControl {
+    display: block;
+  }
+  .navbar .navControl .hamberger {
+    color: #fff;
+    font-size: 30px;
+  }
+  .navbar .navControl .cross {
+    color: #fff;
+    font-size: 28px;
+  }
+  .navbar .links {
+    height: 100vh;
+    position: absolute;
+    flex-direction: column;
+    background-color: rgb(26, 24, 24);
+    top: 50px;
+    left: 0;
+    padding: 5px 20px 5px 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .navbar .links .link {
+    margin: 10px;
+  }
 }/*# sourceMappingURL=Navbar.css.map */

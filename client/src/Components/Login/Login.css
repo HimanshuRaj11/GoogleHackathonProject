@@ -50,6 +50,7 @@
   color: rgb(255, 255, 255);
 }
 .login .form .btn {
+  cursor: pointer;
   display: flex;
   align-items: center;
   width: -moz-max-content;
