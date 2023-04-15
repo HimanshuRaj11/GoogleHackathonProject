@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddProperty.css";
 import axios from "axios";
 export default function AddProperty() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const [image, setImage] = useState("");
   const [Input, setInput] = useState({
     title: "",
@@ -27,10 +28,11 @@ export default function AddProperty() {
       formData.append(key, value);
     });
     const res = await axios.post(
-      "http://localhost:8000/property/add-property",
+      `${siteUrl}/property/add-property`,
       formData,
       { withCredentials: true }
     );
+      alert(res.data.msg)
     setInput({
       title: "",
       type: "",
@@ -39,8 +41,8 @@ export default function AddProperty() {
       country: "",
       location: "",
       description: "",
-      currency:"",
-      areaUnit:""
+      currency: "",
+      areaUnit: "",
     });
   };
   return (
@@ -79,8 +81,14 @@ export default function AddProperty() {
             </select>
           </label>
           <label htmlFor="price">
-            <select name="currency"  onChange={handelInput} value={Input.currency}>
-              <option value="&#x20B9;" selected>&#x20B9;</option>
+            <select
+              name="currency"
+              onChange={handelInput}
+              value={Input.currency}
+            >
+              <option value="&#x20B9;" selected>
+                &#x20B9;
+              </option>
               <option value="&#x24;">&#x24;</option>
               <option value="&#xa3;">&#xa3;</option>
               <option value="&#x20AC;">&#x20AC;</option>
@@ -103,8 +111,14 @@ export default function AddProperty() {
               name="area"
               placeholder="Area or Size"
             />
-            <select name="areaUnit"  onChange={handelInput} value={Input.areaUnit}>
-              <option value="sq ft" selected>sq ft</option>
+            <select
+              name="areaUnit"
+              onChange={handelInput}
+              value={Input.areaUnit}
+            >
+              <option value="sq ft" selected>
+                sq ft
+              </option>
               <option value="sq yd">sq yd</option>
               <option value="sq m">sq m</option>
               <option value="Acres">Acres</option>

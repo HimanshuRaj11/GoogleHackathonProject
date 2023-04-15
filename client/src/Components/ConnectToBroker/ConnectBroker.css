@@ -1,0 +1,8 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+.detail span {
+  display: flex;
+  flex-direction: row;
+}/*# sourceMappingURL=ConnectBroker.css.map */

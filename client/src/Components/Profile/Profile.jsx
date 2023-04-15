@@ -30,6 +30,7 @@ export default function Profile() {
         <hr />
         <div className="userControll">
           <NavLink to ={`/profile/property/${user._id}`} className="span" >My Property</NavLink>
+          <NavLink to="/add-property" className="span">Add Property</NavLink>
         </div>
       </div>
       <div className="content">

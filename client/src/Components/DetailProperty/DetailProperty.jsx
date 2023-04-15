@@ -8,10 +8,11 @@ import Reviews from "./Reviews";
 import Feature from "./Feature";
 import { useGlobalContext } from "../../Context/Context";
 export default function DetailProperty() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const {SingleProperty, setSingleProperty} = useGlobalContext()
   const { id } = useParams();
   const getDetailProperty = async () => {
-    const res = await axios.get("http://localhost:8000/property/find/" + id, {
+    const res = await axios.get(`${siteUrl}/property/find/` + id, {
       withCredentials: true,
     });
     setSingleProperty(res.data);
@@ -49,7 +50,7 @@ export default function DetailProperty() {
           <div className="propertyDetail d-f-fd-c">
             <div className="imgDiv">
               <img
-                src={`http://localhost:8000/images/${SingleProperty.image}`}
+                src={`${siteUrl}/images/${SingleProperty.image}`}
                 alt=""
               />
             </div>

@@ -7,6 +7,7 @@ import Cookie from "js-cookie";
 import Message from "../Message/Message";
 import { useGlobalContext } from "../../Context/Context";
 export default function Login() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const { getUser } = useGlobalContext();
   const navigate = useNavigate();
   const [success, setSuccess] = useState();
@@ -21,7 +22,7 @@ export default function Login() {
     setUser({ ...user, [name]: value });
   };
   const Login = async () => {
-    const res = await axios.post("http://localhost:8000/auth/login", user, {
+    const res = await axios.post(`${siteUrl}/auth/login`, user, {
       withCredentials: true,
     });
     setError(res.data.error);

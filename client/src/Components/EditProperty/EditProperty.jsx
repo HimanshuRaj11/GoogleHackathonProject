@@ -3,11 +3,12 @@ import "./EditProperty.css";
 import { useParams,useNavigate } from "react-router";
 import axios from "axios";
 export default function EditProperty() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const { id } = useParams();
   const navigate = useNavigate()
   const [property, setProperty] = useState([]);
   const getPropertyData = async () => {
-    const res = await axios.get("http://localhost:8000/property/find/" + id, {
+    const res = await axios.get(`${siteUrl}/property/find/` + id, {
       withCredentials: true,
     });
     setProperty(res.data);
@@ -31,7 +32,7 @@ const [Input, setInput] = useState({
   };
 
   const submit = async () => {
-    const res = await axios.post("http://localhost:8000/property/update/" + id, property,{withCredentials: true});
+    const res = await axios.post(`${siteUrl}/property/update/` + id, property,{withCredentials: true});
     console.log(res.data);
     navigate('/profile')
   };

@@ -7,11 +7,12 @@ import axios from "axios";
 import { MdLocationPin } from "react-icons/md";
 import { useGlobalContext } from "../../Context/Context";
 export default function UserProperty() {
-    const {id} = useParams()
+
+  const siteUrl = process.env.REACT_APP_siteUrl;  const {id} = useParams()
     const { UserProperty, getUserProperty} = useGlobalContext()
   const navigate = useNavigate();
   const deleteProperty = async (id) => {
-    const res = await axios.get(`http://localhost:8000/property/delete/` + id, {
+    const res = await axios.get(`${siteUrl}/property/delete/` + id, {
       withCredentials: true,
     });
     console.log(res.data);

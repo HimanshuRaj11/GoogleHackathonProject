@@ -19,9 +19,9 @@ router.post('/register', async (req, res) => {
     const { password, ...others } = newUser._doc
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET)
     res.cookie('RealEstate', token)
-    return res.status(201).json({ others, token })
+    return res.status(201).json({ others, token , msg:"Register Successfull"})
   } catch (error) {
-    return res.status(500).json(error.message)
+    return res.status(500).json({msg:error.message})
   }
 })
 
@@ -36,15 +36,15 @@ router.post("/login", async (req, res) => {
     }
     const comparePass = await bcrypt.compare(req.body.password, user.password)
     if (!comparePass) {
-      return res.status(500).json({ error: 'Wrong credentials. Try again!' })
+      return res.status(500).json({ msg: 'Wrong credentials. Try again!' })
     }
     const { password, ...others } = user._doc
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
     res.cookie('RealEstate', token)
 
-    return res.status(200).json({ others, token, success: "Login Successfull" })
+    return res.status(200).json({ others, token, msg: "Login Successfull" })
   } catch (err) {
-    return res.status(500).json({ error: 'Server Error!' })
+    return res.status(500).json({ msg: 'Server Error!' })
   }
 })
 
@@ -64,7 +64,7 @@ router.get('/getUser', verifyToken, async(req,res)=>{
     return res.status(200).json({user})
   } catch (error) {
     console.log(error);
-    return res.status(400).json({error:"server error"})
+    return res.status(400).json({msg:"server error"})
   }
 })
 
@@ -74,10 +74,10 @@ router.post('/update-user/:id', verifyToken, async(req, res)=>{
   try {
     const {id} = req.params
     const user = await User.findByIdAndUpdate({_id:id},{ $set: req.body },{ new: true })
-    return res.status(201).json({success:"Updated Successful"})
+    return res.status(201).json({msg:"Updated Successful"})
   } catch (error) {
     console.log(error);
-    return res.status(403).json({error:"Server error"})
+    return res.status(403).json({msg:"Server error"})
   }
 })
 

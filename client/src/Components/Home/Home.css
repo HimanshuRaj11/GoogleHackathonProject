@@ -82,7 +82,8 @@
   height: 5em;
   margin-top: 20px;
 }
-.Home .properties .card .details .contact button {
+.Home .properties .card .details .contact .button {
+  color: #fff;
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;

@@ -11,15 +11,15 @@ import Message from "../Message/Message";
 import { useGlobalContext } from "../../Context/Context";
 
 export default function Navbar() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const { user, setUser } = useGlobalContext();
-  const {Hamburger , setHamburger} = useState(true)
-  const {cross , setcross} = useState(true)
+
   const {ToggelM , setToggel} = useState(true)
 
   const [success, setSuccess] = useState();
   const navigate = useNavigate();
   const logout = async () => {
-    const res = await axios.get("http://localhost:8000/auth/logout", {
+    const res = await axios.get(`${siteUrl}/auth/logout`, {
       withCredentials: true,
     });
     setSuccess(res.data.success);

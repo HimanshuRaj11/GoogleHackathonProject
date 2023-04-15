@@ -6,7 +6,6 @@ import { MdLocationPin } from "react-icons/md";
 import { useGlobalContext } from "../../Context/Context";
 export default function Home() {
   const { getProperty, Properties } = useGlobalContext();
-
   useEffect(() => {
     getProperty();
   }, []);
@@ -24,7 +23,7 @@ export default function Home() {
         {Properties.slice(0, 6).map((Property, i) => {
           return (
             <>
-              <div className="card" key={i + 1}>
+              <div className="card" key={i+1}>
                 <NavLink to={`/property_Detail/${Property._id}`}>
                   <img
                     className="img"
@@ -50,7 +49,7 @@ export default function Home() {
                     <span className="price"></span>
                   </div>
                   <div className="contact">
-                    <button>Connect To Broker</button>
+                    <NavLink to={`broker/${Property.currentOwner}`} className='button'>Connect To Broker</NavLink>
                   </div>
                 </div>
               </div>

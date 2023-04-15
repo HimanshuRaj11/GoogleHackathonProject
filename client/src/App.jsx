@@ -19,6 +19,7 @@ import About from "./Components/About/About";
 import Services from "./Components/Services/Services";
 import UserProperty from "./Components/Profile/UserProperty";
 import UserData from "./Components/Profile/UserData";
+import ConnectBroker from "./Components/ConnectToBroker/ConnectBroker";
 function App() {
   const { getUser, user } = useGlobalContext();
   const [cookie, setCookie] = useState("");
@@ -50,6 +51,7 @@ function App() {
           <Route excat path="/register" element={<Register />} />
           <Route excat path="/login" element={<Login />} />
           <Route excat path="/search_property" element={<SearchResult />} />
+          <Route excat path="broker/:id" element={<ConnectBroker />} />
           <Route
             excat
             path="/property_Detail/:id"

@@ -10,7 +10,7 @@ router.get('/getAll', async (req, res) => {
         const properties = await Property.find({})
         return res.status(200).json(properties)
     } catch (error) {
-        return res.status(401).json({ error: 'Data Not Found' })
+        return res.status(401).json({ msg: 'Data Not Found' })
     }
 })
 
@@ -94,10 +94,9 @@ router.post('/add-property', verifyToken, upload.single("image"), async (req, re
     try {
         const newProperty = await Property.create({ ...req.body, image, currentOwner: req.user.id })
 
-        return res.status(201).json(newProperty)
+        return res.status(201).json({newProperty, msg:"Property Added Successfull"})
     } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error })
+        return res.status(500).json({ msg:"somthing error ! please try again.." })
 
     }
 })
@@ -127,10 +126,10 @@ router.post('/update/:id', verifyToken, async (req, res) => {
             { new: true }
         )
 
-        return res.status(200).json({ updatedProperty, success: "Update Successfull" })
+        return res.status(200).json({ updatedProperty, msg: "Update Successfull" })
     } catch (error) {
         console.log(error);
-        return res.status(500).json(error)
+        return res.status(500).json({msg:"server error try again.."})
     }
 })
 
@@ -163,12 +162,20 @@ router.post('/search', async(req, res) => {
                 { location: { $regex: search, $options: 'i' } },
             ]
         });
-        res.json(data);
+        res.json({data});
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Server Error'})
+        res.status(500).json({msg: 'Something error please try again..'})
     }
 
 });
-
+router.get('/broker/:id', async(req,res)=>{
+    const {id} = req.params
+    try {
+        const broker = await User.findById(id)
+        return res.json({broker})
+    } catch (error) {
+        
+    }
+})
 module.exports = router

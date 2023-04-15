@@ -6,6 +6,7 @@ import axios from "axios";
 import Cookie from "js-cookie";
 import { useGlobalContext } from "../../Context/Context";
 export default function Register() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const {getUser}= useGlobalContext()
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -24,7 +25,7 @@ export default function Register() {
   const Register = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/auth/register",
+        `${siteUrl}/auth/register`,
         user,
         { withCredentials: true }
       );

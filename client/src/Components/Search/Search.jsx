@@ -5,6 +5,7 @@ import {FaSearch} from 'react-icons/fa'
 import axios from "axios";
 import { useGlobalContext } from "../../Context/Context";
 export default function Search() {
+  const siteUrl = process.env.REACT_APP_siteUrl;
   const {setSearchProperty} = useGlobalContext()
   const [searchQuery, setSearchQuery] = useState('')
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function Search() {
   };
 
   const getData = async()=>{
-    const res = await axios.post('http://localhost:8000/property/search',{'search':searchQuery},  {withCredentials:true})
+    const res = await axios.post(`${siteUrl}/property/search`,{'search':searchQuery},  {withCredentials:true})
       setSearchProperty(res.data)
   }
 const GotoSearch = ()=>{

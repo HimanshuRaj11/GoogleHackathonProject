@@ -2,7 +2,10 @@ import React,{ useEffect,useState } from 'react'
 import './Profile.css'
 import { useGlobalContext } from '../../Context/Context'
 import axios from 'axios'
+import { useNavigate } from 'react-router'
 export default function UserData() {
+    const navigate = useNavigate()
+    const siteUrl = process.env.REACT_APP_siteUrl;
     const { getUser, user } = useGlobalContext();
     const [userInput, setUserinput] = useState({
         name:user.name,
@@ -20,8 +23,9 @@ export default function UserData() {
         setUserinput({...userInput, [name]:value})
     }
     const saveUser=async()=>{
-        const res = await axios.post('http://localhost:8000/auth/update-user/'+user._id,userInput, {withCredentials:true})
-        
+        const res = await axios.post(`${siteUrl}/auth/update-user/`+user._id,userInput, {withCredentials:true})
+        navigate('/profile')
+        alert(res.data.msg)
     }
     useEffect(() => {
         getUser();
