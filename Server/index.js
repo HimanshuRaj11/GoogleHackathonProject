@@ -6,7 +6,7 @@ require("./db/connection")
 const authRoute = require('./Routers/Auth');
 const propertyRoute = require('./Routers/property')
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.React_URL,
     credentials: true // for getting al data includig applicatons data i.e cookie ,localstorage ,sessionStorage ,etc
   }));
 app.use(express.json());
@@ -21,6 +21,10 @@ app.get('/', (req, res)=>{
 // Routers & middlewares
 app.use('/auth',authRoute)
 app.use('/property', propertyRoute)
+
+// if(process.env.NODE_ENV=='production'){
+//   app.use(express.static('client/build'))
+// }
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server started on port : ${port}`));
