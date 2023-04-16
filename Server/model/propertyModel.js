@@ -23,8 +23,9 @@ const PropertySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    currency:{
-        type:String,
+    currency: {
+        type: String,
+        required: true
     },
     price: {
         type: Number,
@@ -34,7 +35,10 @@ const PropertySchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    areaUnit: {String},
+    areaUnit: {
+        type: String,
+        required: true
+    },
     country: {
         type: String,
         required: true
@@ -43,14 +47,14 @@ const PropertySchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    location:{
+    location: {
         type: String,
         required: true
     },
-    forSell:{
+    forSell: {
         type: Boolean,
         default: false
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
 module.exports = mongoose.model("Property", PropertySchema)

@@ -144,11 +144,13 @@
                             margin: 0 10px;
                             display: flex;
                             .edit {
+                                cursor: pointer;
                                 color: #082c01;
                                 font-size: 35px;
                                 font-weight: 1000;
                             }
                             .delete {
+                                cursor: pointer;
                                 color: #b81f04;
                                 font-size: 35px;
                                 font-weight: 1000;

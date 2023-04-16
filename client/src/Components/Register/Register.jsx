@@ -7,9 +7,9 @@ import Cookie from "js-cookie";
 import { useGlobalContext } from "../../Context/Context";
 export default function Register() {
   const siteUrl = process.env.REACT_APP_siteUrl;
-  const {getUser}= useGlobalContext()
+  const {getUser,user }= useGlobalContext()
   const navigate = useNavigate();
-  const [user, setUser] = useState({
+  const [Inputuser, setUser] = useState({
     name: "",
     username: "",
     email: "",
@@ -20,25 +20,27 @@ export default function Register() {
     const name = e.target.name;
     const value = e.target.value;
 
-    setUser({ ...user, [name]: value });
+    setUser({ ...Inputuser, [name]: value });
   };
   const Register = async () => {
     try {
       const res = await axios.post(
         `${siteUrl}/auth/register`,
-        user,
+        Inputuser,
         { withCredentials: true }
       );
-      console.log(res.data.token);
+      alert(res.data.msg)
       Cookie.set("realEstate", res.data.token, {
         // secure: true,
         sameSite: "strict",
         path: "/",
       });
-      navigate("/");
       getUser()
+      navigate(`/profile`);
+      return 0
     } catch (error) {
-      console.log(error);
+      const message = error.response.data
+      alert(message.msg)
     }
   };
   return (
@@ -46,35 +48,35 @@ export default function Register() {
       <div className="form">
         <input
           type="text"
-          value={user.name}
+          value={Inputuser.name}
           name="name"
           onChange={handelInputs}
           placeholder="Name"
         />
         <input
           type="text"
-          value={user.username}
+          value={Inputuser.username}
           name="username"
           onChange={handelInputs}
           placeholder="Username"
         />
         <input
           type="email"
-          value={user.email}
+          value={Inputuser.email}
           name="email"
           onChange={handelInputs}
           placeholder="Email"
         />
         <input
           type="password"
-          value={user.password}
+          value={Inputuser.password}
           name="password"
           onChange={handelInputs}
           placeholder="Password"
         />
         <input
           type="password"
-          value={user.ConfirmPassword}
+          value={Inputuser.ConfirmPassword}
           name="ConfirmPassword"
           onChange={handelInputs}
           placeholder="Confirm Password"

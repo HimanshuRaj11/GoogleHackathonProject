@@ -150,11 +150,13 @@
   display: flex;
 }
 .ProfileContainer .content .properties .card .details .button .btn .edit {
+  cursor: pointer;
   color: #082c01;
   font-size: 35px;
   font-weight: 1000;
 }
 .ProfileContainer .content .properties .card .details .button .btn .delete {
+  cursor: pointer;
   color: #b81f04;
   font-size: 35px;
   font-weight: 1000;

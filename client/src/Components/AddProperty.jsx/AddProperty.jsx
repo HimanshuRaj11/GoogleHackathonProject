@@ -12,6 +12,8 @@ export default function AddProperty() {
     country: "",
     location: "",
     description: "",
+    currency: "",
+    areaUnit: "",
   });
 
   const handelInput = (e) => {
@@ -20,30 +22,35 @@ export default function AddProperty() {
 
     setInput({ ...Input, [name]: value });
   };
-
+ 
   const submit = async () => {
-    const formData = new FormData();
-    formData.append("image", image);
-    Object.entries(Input).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-    const res = await axios.post(
-      `${siteUrl}/property/add-property`,
-      formData,
-      { withCredentials: true }
-    );
-      alert(res.data.msg)
-    setInput({
-      title: "",
-      type: "",
-      price: "",
-      area: "",
-      country: "",
-      location: "",
-      description: "",
-      currency: "",
-      areaUnit: "",
-    });
+    try {
+      const formData = new FormData();
+      formData.append("image", image);
+      Object.entries(Input).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      const res = await axios.post(
+        `${siteUrl}/property/add-property`,
+        formData,
+        { withCredentials: true }
+      );
+        alert(res.data.msg)
+      setInput({
+        title: "",
+        type: "",
+        price: "",
+        area: "",
+        country: "",
+        location: "",
+        description: "",
+      });
+      return 0
+    } catch (error) {
+      const message = error.response.data
+      alert(message.msg)
+    }
+   
   };
   return (
     <div className="AddProperty">
@@ -85,8 +92,8 @@ export default function AddProperty() {
               name="currency"
               onChange={handelInput}
               value={Input.currency}
-            >
-              <option value="&#x20B9;" selected>
+            ><option selected>select Currency</option>
+              <option value="&#x20B9;">
                 &#x20B9;
               </option>
               <option value="&#x24;">&#x24;</option>
@@ -104,6 +111,16 @@ export default function AddProperty() {
             />
           </label>
           <label htmlFor="area">
+           
+            <select name="areaUnit" onChange={handelInput} value={Input.areaUnit}>
+              <option selected>select Unit</option>
+              <option value="sq ft">sq ft</option>
+              <option value="sq yd">sq yd</option>
+              <option value="sq m">sq m</option>
+              <option value="Acres">Acres</option>
+              <option value="BHK">BHK</option>
+              <option value="Bigha">Bigha</option>
+            </select>
             <input
               onChange={handelInput}
               value={Input.area}
@@ -111,20 +128,6 @@ export default function AddProperty() {
               name="area"
               placeholder="Area or Size"
             />
-            <select
-              name="areaUnit"
-              onChange={handelInput}
-              value={Input.areaUnit}
-            >
-              <option value="sq ft" selected>
-                sq ft
-              </option>
-              <option value="sq yd">sq yd</option>
-              <option value="sq m">sq m</option>
-              <option value="Acres">Acres</option>
-              <option value="BHK">BHK</option>
-              <option value="Bigha">Bigha</option>
-            </select>
           </label>
 
           <label htmlFor="country">

@@ -28,11 +28,10 @@ router.post('/register', async (req, res) => {
 //login 
 
 router.post("/login", async (req, res) => {
-
   try {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
-      return res.status(500).json({ error: 'Wrong credentials. Try again!' })
+      return res.status(500).json({ msg: 'Wrong credentials. Try again!' })
     }
     const comparePass = await bcrypt.compare(req.body.password, user.password)
     if (!comparePass) {
@@ -63,7 +62,6 @@ router.get('/getUser', verifyToken, async(req,res)=>{
     const user = await User.findById({_id:req.user.id})
     return res.status(200).json({user})
   } catch (error) {
-    console.log(error);
     return res.status(400).json({msg:"server error"})
   }
 })
@@ -76,7 +74,6 @@ router.post('/update-user/:id', verifyToken, async(req, res)=>{
     const user = await User.findByIdAndUpdate({_id:id},{ $set: req.body },{ new: true })
     return res.status(201).json({msg:"Updated Successful"})
   } catch (error) {
-    console.log(error);
     return res.status(403).json({msg:"Server error"})
   }
 })

@@ -68,7 +68,8 @@
   height: 5em;
   margin-top: 20px;
 }
-.PropertyContainer .properties .card .details .contact button {
+.PropertyContainer .properties .card .details .contact .button {
+  color: #fff;
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;

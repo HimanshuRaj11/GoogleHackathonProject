@@ -20,6 +20,7 @@ import Services from "./Components/Services/Services";
 import UserProperty from "./Components/Profile/UserProperty";
 import UserData from "./Components/Profile/UserData";
 import ConnectBroker from "./Components/ConnectToBroker/ConnectBroker";
+import NotFound from "./Components/NotFound";
 function App() {
   const { getUser, user } = useGlobalContext();
   const [cookie, setCookie] = useState("");
@@ -39,7 +40,7 @@ function App() {
                 <Route excat path={`property/:id`} element={<UserProperty />}/>
                 <Route excat path={`user/:id`} element={<UserData />} />
               </Route>
-              <Route excat path="/:id" element={<EditProperty />} />
+              <Route excat path={`${user._id}/:id`} element={<EditProperty />} />
               <Route excat path="/add-property" element={<AddProperty />} />
             </>
           ) : (
@@ -58,6 +59,7 @@ function App() {
             element={<DetailProperty />}
           />
           <Route excat path="/property" element={<Property />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

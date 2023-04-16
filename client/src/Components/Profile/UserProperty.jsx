@@ -1,26 +1,26 @@
-import React,{useEffect} from "react";
-import './Profile.css'
-import { NavLink, useNavigate,useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import "./Profile.css";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { BiPlusCircle } from "react-icons/bi";
 import axios from "axios";
 import { MdLocationPin } from "react-icons/md";
 import { useGlobalContext } from "../../Context/Context";
 export default function UserProperty() {
-
-  const siteUrl = process.env.REACT_APP_siteUrl;  const {id} = useParams()
-    const { UserProperty, getUserProperty} = useGlobalContext()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const siteUrl = process.env.REACT_APP_siteUrl;
+  const { id } = useParams();
+  const { UserProperty, getUserProperty,user } = useGlobalContext();
   const deleteProperty = async (id) => {
     const res = await axios.get(`${siteUrl}/property/delete/` + id, {
       withCredentials: true,
     });
-    console.log(res.data);
-    navigate("/profile");
+    navigate(`/profile/property/${user._id}`)
+    alert(res.data.msg);
   };
-  useEffect(()=>{
+  useEffect(() => {
     getUserProperty(id);
-  },[])
+  }, []);
   return (
     <div>
       <div className="userDataSide">
@@ -43,8 +43,8 @@ export default function UserProperty() {
                       />
                     </NavLink>
                     <div className="details">
-                    <div className="button">
-                        <NavLink className="btn" to={`/${Property._id}`}>
+                      <div className="button">
+                        <NavLink className="btn" to={`/${user._id}/${Property._id}`}>
                           <MdEdit className="icon edit" />
                         </NavLink>
                         <span
@@ -67,11 +67,14 @@ export default function UserProperty() {
                         </h3>
                       </div>
                       <div className="m-detail">
-                        <span className="price">{Property.price}</span>
-                        <span className="area">{Property.area}</span>
+                        <span className="price">
+                          {Property.currency} {Property.price}
+                        </span>
+                        <span className="area">
+                        {Property.area} {Property.areaUnit}
+                        </span>
                         <span className="price"></span>
                       </div>
-                     
                     </div>
                   </div>
                 );

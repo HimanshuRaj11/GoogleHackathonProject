@@ -4,14 +4,11 @@ import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoMdLogIn } from "react-icons/io";
 import Cookie from "js-cookie";
-import Message from "../Message/Message";
 import { useGlobalContext } from "../../Context/Context";
 export default function Login() {
   const siteUrl = process.env.REACT_APP_siteUrl;
   const { getUser } = useGlobalContext();
   const navigate = useNavigate();
-  const [success, setSuccess] = useState();
-  const [error, setError] = useState();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -22,18 +19,24 @@ export default function Login() {
     setUser({ ...user, [name]: value });
   };
   const Login = async () => {
-    const res = await axios.post(`${siteUrl}/auth/login`, user, {
-      withCredentials: true,
-    });
-    setError(res.data.error);
-    setSuccess(res.data.success);
-    Cookie.set("realEstate", res.data.token, {
-      // secure: true,
-      sameSite: "strict",
-      path: "/",
-    });
-    getUser();
-    navigate("/");
+    try {
+      const res = await axios.post(`${siteUrl}/auth/login`, user, {
+        withCredentials: true,
+      });
+      alert(res.data.msg)
+      Cookie.set("realEstate", res.data.token, {
+        // secure: true,
+        sameSite: "strict",
+        path: "/",
+      });
+      getUser();
+      navigate("/");
+      return 0
+    } catch (error) {
+      const message = error.response.data
+      alert(message.msg)
+    }
+   
   };
 
   return (
@@ -62,8 +65,6 @@ export default function Login() {
           Login <IoMdLogIn className="icon" />
         </button>
       </div>
-      {success ? <Message msg={success} Mtype="success" /> : ""}
-      {error ? <Message msg={error} Mtype="error" /> : ""}
     </div>
   );
 }

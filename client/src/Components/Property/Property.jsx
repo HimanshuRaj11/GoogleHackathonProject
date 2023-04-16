@@ -42,12 +42,12 @@ useEffect(()=>{
                 </h3>
               </div>
               <div className="m-detail">
-                <span className="price">{Property.price}</span>
-                <span className="area">{Property.area}</span>
+                <span className="price">{Property.currency} {Property.price}</span>
+                <span className="area">{Property.area} {Property.areaUnit} </span>
                 <span className="price"></span>
               </div>
               <div className="contact">
-                <button>Connect To Broker</button>
+              <NavLink to={`broker/${Property.currentOwner}`} className='button'>Connect To Broker</NavLink>
               </div>
             </div>
           </div>

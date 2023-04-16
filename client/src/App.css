@@ -10,3 +10,15 @@
 .container{
   margin-top: 50px;
 }
+.notfound{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+
+}
+.notfound h1{
+  font-size: 22px;
+  color: rgb(100, 88, 88);
+}

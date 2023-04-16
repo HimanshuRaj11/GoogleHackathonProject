@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./EditProperty.css";
 import { useParams,useNavigate } from "react-router";
 import axios from "axios";
+import { useGlobalContext } from "../../Context/Context";
 export default function EditProperty() {
+  const {user} = useGlobalContext()
   const siteUrl = process.env.REACT_APP_siteUrl;
   const { id } = useParams();
   const navigate = useNavigate()
@@ -14,15 +16,6 @@ export default function EditProperty() {
     setProperty(res.data);
   };
   const [image, setImage] = useState('')
-const [Input, setInput] = useState({
-    title: "",
-    type: "",
-    price: "",
-    area: "",
-    country: "",
-    location: "",
-    description: "",
-  });
 
   const handelInput = (e) => {
     const name = e.target.name;
@@ -33,8 +26,8 @@ const [Input, setInput] = useState({
 
   const submit = async () => {
     const res = await axios.post(`${siteUrl}/property/update/` + id, property,{withCredentials: true});
-    console.log(res.data);
-    navigate('/profile')
+    navigate(`/profile/property/${user._id}`)
+    alert(res.data.msg);
   };
   useEffect(() => {
     getPropertyData();
@@ -71,6 +64,20 @@ const [Input, setInput] = useState({
             </select>
           </label>
           <label htmlFor="price">
+          <select
+              name="currency"
+              onChange={handelInput}
+              value={property.currency}
+            >
+              <option value="&#x20B9;" >
+                &#x20B9;
+              </option>
+              <option value="&#x24;">&#x24;</option>
+              <option value="&#xa3;">&#xa3;</option>
+              <option value="&#x20AC;">&#x20AC;</option>
+              <option value="&#x20BD;">&#x20BD;</option>
+              <option value="&#xa5;">&#xa5;</option>
+            </select>
             <input
               onChange={handelInput}
               value={property.price}
@@ -80,6 +87,21 @@ const [Input, setInput] = useState({
             />
           </label>
           <label htmlFor="area">
+          <select
+              name="areaUnit"
+              onChange={handelInput}
+              value={property.areaUnit}
+            >
+              <option value="sq ft">
+                sq ft
+              </option>
+              <option value="sq yd">sq yd</option>
+              <option value="sq m">sq m</option>
+              <option value="Acres">Acres</option>
+              <option value="BHK">BHK</option>
+              <option value="Bigha">Bigha</option>
+            </select>
+          
             <input
               onChange={handelInput}
               value={property.area}

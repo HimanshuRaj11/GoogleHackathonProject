@@ -89,11 +89,9 @@ const upload = multer({
 
 
 router.post('/add-property', verifyToken, upload.single("image"), async (req, res) => {
-    // console.log(req.file);
     const image = req.file.filename;
     try {
         const newProperty = await Property.create({ ...req.body, image, currentOwner: req.user.id })
-
         return res.status(201).json({newProperty, msg:"Property Added Successfull"})
     } catch (error) {
         return res.status(500).json({ msg:"somthing error ! please try again.." })
@@ -107,7 +105,7 @@ router.get('/:id', verifyToken, async (req, res) => {
         const property = await Property.find({ currentOwner: req.params.id })
         return res.status(200).json({ property })
     } catch (error) {
-        console.log(error);
+        return res.status(403)
     }
 })
 
@@ -128,7 +126,6 @@ router.post('/update/:id', verifyToken, async (req, res) => {
 
         return res.status(200).json({ updatedProperty, msg: "Update Successfull" })
     } catch (error) {
-        console.log(error);
         return res.status(500).json({msg:"server error try again.."})
     }
 })
@@ -144,9 +141,8 @@ router.get('/delete/:id', verifyToken, async (req, res) => {
 
         await property.deleteOne()
 
-        return res.status(200).json({ success: "Successfully delete" })
+        return res.status(200).json({ msg: "Successfully delete" })
     } catch (error) {
-        console.log(error);
         return res.status(500).json(error)
 
     }
@@ -164,7 +160,6 @@ router.post('/search', async(req, res) => {
         });
         res.json({data});
     } catch (error) {
-        console.log(error);
         res.status(500).json({msg: 'Something error please try again..'})
     }
 

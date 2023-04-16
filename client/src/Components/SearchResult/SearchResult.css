@@ -72,7 +72,8 @@
   height: 5em;
   margin-top: 20px;
 }
-.searchResultContainer .container .searchResult .card .details .contact button {
+.searchResultContainer .container .searchResult .card .details .contact .button {
+  color: #fff;
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;

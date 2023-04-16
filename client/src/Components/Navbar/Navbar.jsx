@@ -42,7 +42,7 @@ export default function Navbar() {
         }
       </div>
       <NavLink to="/" className="logo">
-        LOGO
+        Real Estate
       </NavLink>
       <div className="links">
         <NavLink to="/" className="link">
